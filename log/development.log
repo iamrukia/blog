@@ -4778,3 +4778,166 @@ Rendered comments/_comment.html.erb (0.0ms)
 Rendered comments/_form.html.erb (45.2ms)
 Rendered posts/show.html.erb within layouts/application (93.7ms)
 Completed 200 OK in 118ms (Views: 96.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2011-02-23 05:42:33 +0000
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1[0m
+  [1m[35mTag Load (0.3ms)[0m  SELECT "tags".* FROM "tags" WHERE ("tags".post_id = 1)
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".post_id = 1)[0m
+Rendered comments/_comment.html.erb (62.3ms)
+Rendered comments/_form.html.erb (4.2ms)
+Rendered posts/show.html.erb within layouts/application (103.2ms)
+Completed 200 OK in 163ms (Views: 106.3ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/posts/1/comments" for 127.0.0.1 at 2011-02-23 05:42:49 +0000
+  Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"50yJ1MHTGkQEyOAub9PpxCTrKEbjl6DMC+6buTY4eVU=", "comment"=>{"commenter"=>"new man", "body"=>"hello"}, "commit"=>"Create Comment", "post_id"=>"1"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "comments" ("commenter", "body", "post_id", "created_at", "updated_at") VALUES ('new man', 'hello', 1, '2011-02-23 05:42:49.798469', '2011-02-23 05:42:49.798469')[0m
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 223ms
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2011-02-23 05:42:49 +0000
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" WHERE ("tags".post_id = 1)[0m
+  [1m[35mComment Load (0.4ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".post_id = 1)
+Rendered comments/_comment.html.erb (61.6ms)
+Rendered comments/_form.html.erb (4.7ms)
+Rendered posts/show.html.erb within layouts/application (105.7ms)
+Completed 200 OK in 168ms (Views: 108.5ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2011-02-23 05:42:55 +0000
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/application (57.5ms)
+Completed 200 OK in 61ms (Views: 60.8ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/session" for 127.0.0.1 at 2011-02-23 05:43:05 +0000
+  Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"50yJ1MHTGkQEyOAub9PpxCTrKEbjl6DMC+6buTY4eVU=", "email"=>"6142533@qq.com", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = '6142533@qq.com' LIMIT 1[0m
+Rendered sessions/new.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 28ms (Views: 7.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-23 05:43:34 +0000
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+Rendered posts/_post.html.erb (67.2ms)
+Rendered posts/index.html.erb within layouts/application (71.3ms)
+Completed 200 OK in 93ms (Views: 74.8ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2011-02-23 05:43:38 +0000
+  Processing by PostsController#new as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 15ms
+
+
+Started GET "/login" for 127.0.0.1 at 2011-02-23 05:43:38 +0000
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/application (21.7ms)
+Completed 200 OK in 26ms (Views: 25.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2011-02-23 05:43:47 +0000
+
+AbstractController::ActionNotFound (The action 'index' could not be found for UsersController):
+  
+
+Rendered /home/shanan/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/unknown_action.erb within rescues/layout (0.8ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2011-02-23 05:43:52 +0000
+  Processing by UsersController#new as HTML
+Rendered users/_form.html.erb (41.4ms)
+Rendered users/new.html.erb within layouts/application (45.8ms)
+Completed 200 OK in 67ms (Views: 49.7ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2011-02-23 05:44:19 +0000
+  Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"50yJ1MHTGkQEyOAub9PpxCTrKEbjl6DMC+6buTY4eVU=", "user"=>{"email"=>"nash@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36mUser Load (2.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."email" = 'nash@example.com') LIMIT 1[0m
+Rendered users/_form.html.erb (8.1ms)
+Rendered users/new.html.erb within layouts/application (12.9ms)
+Completed 200 OK in 101ms (Views: 16.7ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2011-02-23 05:44:32 +0000
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.5ms)[0m  SELECT "posts".* FROM "posts"
+Rendered posts/_post.html.erb (72.1ms)
+Rendered posts/index.html.erb within layouts/application (76.9ms)
+Completed 200 OK in 99ms (Views: 80.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2011-02-23 05:44:49 +0000
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/application (55.1ms)
+Completed 200 OK in 60ms (Views: 60.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2011-02-23 05:44:56 +0000
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/application (19.7ms)
+Completed 200 OK in 24ms (Views: 23.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-23 05:48:41 +0000
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+Rendered posts/_post.html.erb (66.0ms)
+Rendered posts/index.html.erb within layouts/application (86.7ms)
+Completed   in 109ms
+
+ActionView::Template::Error (undefined local variable or method `new_user' for #<#<Class:0x000000024ad790>:0x000000024a76d8>):
+    18:         <%= link_to "Logout", logout_path %>
+    19:       <% else %>
+    20:         <%= link_to "Login", login_path %>
+    21:         <%= link_to "Sign up", new_user %>
+    22:       <% end %>
+    23:     </div>
+    24:   </div>
+  app/views/layouts/application.html.erb:21:in `_app_views_layouts_application_html_erb___2698187244654460227_19205200__1134650354885797538'
+  app/controllers/posts_controller.rb:9:in `index'
+
+Rendered /home/shanan/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /home/shanan/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.5ms)
+Rendered /home/shanan/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (10.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-02-23 05:49:55 +0000
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.4ms)[0m  SELECT "posts".* FROM "posts"
+Rendered posts/_post.html.erb (33.3ms)
+Rendered posts/index.html.erb within layouts/application (38.3ms)
+Completed 200 OK in 70ms (Views: 42.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2011-02-23 05:49:59 +0000
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1[0m
+  [1m[35mTag Load (0.3ms)[0m  SELECT "tags".* FROM "tags" WHERE ("tags".post_id = 1)
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".post_id = 1)[0m
+Rendered comments/_comment.html.erb (29.0ms)
+Rendered comments/_form.html.erb (4.0ms)
+Rendered posts/show.html.erb within layouts/application (110.1ms)
+Completed 200 OK in 135ms (Views: 113.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2011-02-23 05:50:03 +0000
+  Processing by UsersController#new as HTML
+Rendered users/_form.html.erb (7.3ms)
+Rendered users/new.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 32ms (Views: 15.7ms | ActiveRecord: 0.5ms)
