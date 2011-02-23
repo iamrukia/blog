@@ -6,7 +6,5 @@ class Comment < ActiveRecord::Base
     errors.add(:post, "is not created yet") if post && !post.created?
   end
 
-  def after_create
-    puts "we will notify the author in Chapter 9"
-  end
+  
 end
