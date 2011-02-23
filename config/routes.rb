@@ -1,7 +1,7 @@
 Blog::Application.routes.draw do
   #get "home/index"
-  root :to=>"home#index"
-  #root :to=>"posts#index"
+  #root :to=>"home#index"
+  root :to=>"posts#index"
   resources :posts do
     resources :comments
   end
