@@ -20,11 +20,17 @@
   <%= join_tags(@post) %>
 </p>
 
+<br/>
+<br/>
+<br/>
 <h2>Comments</h2>
+<div id="comments">
 <%= render :partial=> "comments/comment", :collection=> @post.comments %>
-
-<h2>Add a comment</h2>
-<%= render "comments/form" %>
+</div>
+  <br/>
+<br/>
+<br/>
+<%= link_to "new comment", new_post_comment_path(@post, :format=> :js), :remote => true, :id => 'new_comment_link' %>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
