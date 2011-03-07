@@ -1,3 +1,4 @@
+<%= div_for comment do %>
 <p>
   <b>Commenter:</b>
   <%= comment.commenter %>
@@ -10,8 +11,14 @@
 
 <p>
   <% if @post.owned_by? current_user %>
-  <%= link_to 'Destroy Comment', [comment.post, comment],
-               :confirm => 'Are you sure?',
-               :method => :delete %>
+   <span class="actions">
+      <%= link_to 'Destroy Comment', [comment.post, comment],
+                   :confirm => 'Are you sure?',
+                   :method => :delete,
+                   :remote => true %>
+                   
+   </span>
   <% end %>
+
 </p>
+<% end %>

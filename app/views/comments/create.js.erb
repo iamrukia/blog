@@ -1,0 +1,5 @@
+$('#comments').append("<%= escape_javascript(render(@comment)) %>");
+$('#new_comment').slideUp('slow', function() {
+    $(this).remove();
+});
+$('#new_comment_link').show();

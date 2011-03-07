@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-  before_filter :authenticate, :except=> [:index, :show]
+  before_filter :authenticate, :except=> [:index, :show, :notify_friend]
   # GET /posts
   # GET /posts.xml
   def index
@@ -86,5 +86,12 @@ class PostsController < ApplicationController
       format.html { redirect_to(posts_url) }
       format.xml  { head :ok }
     end
+  end
+
+
+  def notify_friend
+    @post = Post.find(params[:id])
+    Notifier.email_friend(@post, params[:name], params[:email]).deliver
+    redirect_to @post, :notice => "successfully sent a message to your friend"
   end
 end

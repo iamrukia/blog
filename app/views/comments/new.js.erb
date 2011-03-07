@@ -1,2 +1,2 @@
-$("<%= escape_javascript render(:file => 'comments/_form.html.erb') %>").insertAfter('#comments');
 $('#new_comment_link').hide();
+var form = $("<%= escape_javascript render(:file => 'comments/_form.html.erb') %>").hide().insertAfter('#comments').slideDown('slow');
