@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f97d74ae-f2b0-4280-b357-8d685201594c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/notifier/email_friend.html.erb" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/pids/server.pid" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/notifier/email_friend.html.erb" afterPath="$PROJECT_DIR$/app/views/notifier/email_friend.html.erb" />
     </list>
     <ignored path="blog.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -57,11 +56,9 @@
       <file leaf-file-name="email_friend.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/notifier/email_friend.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="7" selection-start="258" selection-end="258" vertical-scroll-proportion="0.2631579">
+            <state line="8" column="49" selection-start="242" selection-end="242" vertical-scroll-proportion="0.21052632">
               <folding>
-                <element signature="tag#body#0;tag#html#0" expanded="true" />
                 <element signature="tag#p#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#p#1;tag#body#0;tag#html#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -607,11 +604,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/notifier/email_friend.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="7" selection-start="258" selection-end="258" vertical-scroll-proportion="0.2631579">
+        <state line="8" column="49" selection-start="242" selection-end="242" vertical-scroll-proportion="0.21052632">
           <folding>
-            <element signature="tag#body#0;tag#html#0" expanded="true" />
             <element signature="tag#p#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#1;tag#body#0;tag#html#0" expanded="true" />
           </folding>
         </state>
       </provider>
