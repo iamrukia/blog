@@ -10885,3 +10885,94 @@ Rendered posts/_notify_friend.html.erb (1.5ms)
 Rendered comments/_comment.html.erb (91.1ms)
 Rendered posts/show.html.erb within layouts/application (129.9ms)
 Completed 200 OK in 154ms (Views: 132.5ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-08 00:39:04 +0000
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+Rendered posts/_post.html.erb (50.9ms)
+Rendered posts/index.html.erb within layouts/application (115.0ms)
+Completed 200 OK in 234ms (Views: 117.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2011-03-08 00:39:06 +0000
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" WHERE ("tags".post_id = 1)[0m
+Rendered posts/_notify_friend.html.erb (1.4ms)
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".post_id = 1)
+Rendered comments/_comment.html.erb (25.7ms)
+Rendered posts/show.html.erb within layouts/application (101.7ms)
+Completed 200 OK in 124ms (Views: 104.6ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/posts/1/notify_friend" for 127.0.0.1 at 2011-03-08 00:39:14 +0000
+  Processing by PostsController#notify_friend as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6HkmGtRd+uuA4BP4fJyQpaWpiMaWqSjOVVUN9ot26DI=", "name"=>"Nash", "email"=>"iamshanan@gmail.com", "commit"=>"Send", "id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1[0m
+Rendered notifier/email_friend.html.erb (8.4ms)
+Rendered notifier/email_friend.text.erb (0.7ms)
+
+Sent mail to iamshanan@gmail.com (1806ms)
+Date: Tue, 08 Mar 2011 00:39:14 +0000
+From: from@example.com
+To: iamshanan@gmail.com
+Message-ID: <4d757ab2917a4_150820e90c8309ba@shanan-ThinkPad.mail>
+Subject: Interesting Post
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_4d757ab26e4b4_150820e90c8306b0";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+
+----==_mimepart_4d757ab26e4b4_150820e90c8306b0
+Date: Tue, 08 Mar 2011 00:39:14 +0000
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Content-ID: <4d757ab281551_150820e90c8307f8@shanan-ThinkPad.mail>
+
+Your friend Nash thinks you may like the following  post:
+
+A new Start: http://localhost:3000/posts/1
+
+----==_mimepart_4d757ab26e4b4_150820e90c8306b0
+Date: Tue, 08 Mar 2011 00:39:14 +0000
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Content-ID: <4d757ab2854d3_150820e90c83083d@shanan-ThinkPad.mail>
+
+<html>
+<body>
+<p>
+  One of your friends, Nash
+  thinks you like an post we have written.
+</p>
+<p>
+  Come check all the information about <strong> A new Start </strong> at
+  http://localhost:3000/posts/1
+</p>
+</body>
+</html>
+
+----==_mimepart_4d757ab26e4b4_150820e90c8306b0--
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 1924ms
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2011-03-08 00:39:16 +0000
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" WHERE ("tags".post_id = 1)[0m
+Rendered posts/_notify_friend.html.erb (1.5ms)
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".post_id = 1)
+Rendered comments/_comment.html.erb (26.1ms)
+Rendered posts/show.html.erb within layouts/application (103.6ms)
+Completed 200 OK in 129ms (Views: 106.5ms | ActiveRecord: 2.4ms)
