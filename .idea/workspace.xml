@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f97d74ae-f2b0-4280-b357-8d685201594c" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/development.sqlite3" afterPath="$PROJECT_DIR$/db/development.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/notifier/email_friend.html.erb" afterPath="$PROJECT_DIR$/app/views/notifier/email_friend.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/development.log" afterPath="$PROJECT_DIR$/log/development.log" />
     </list>
     <ignored path="blog.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -56,7 +58,7 @@
       <file leaf-file-name="email_friend.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/notifier/email_friend.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="49" selection-start="242" selection-end="242" vertical-scroll-proportion="0.21052632">
+            <state line="8" column="47" selection-start="240" selection-end="240" vertical-scroll-proportion="0.21052632">
               <folding>
                 <element signature="tag#p#0;tag#body#0;tag#html#0" expanded="true" />
               </folding>
@@ -604,7 +606,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/notifier/email_friend.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="49" selection-start="242" selection-end="242" vertical-scroll-proportion="0.21052632">
+        <state line="8" column="47" selection-start="240" selection-end="240" vertical-scroll-proportion="0.21052632">
           <folding>
             <element signature="tag#p#0;tag#body#0;tag#html#0" expanded="true" />
           </folding>
