@@ -8,6 +8,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
+      format.pdf  # index.pdf.prawn
       format.xml  { render :xml => @posts }
     end
   end
@@ -19,6 +20,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
+      format.pdf  # show.pdf.prawn
       format.xml  { render :xml => @post }
     end
   end

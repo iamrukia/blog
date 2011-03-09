@@ -11,7 +11,11 @@ class Notifier < ActionMailer::Base
     @post = post
     @sender_name = sender_name
 
+    #attachments
+    #Try to use attachments directly and use inline attachments
+    attachments.inline["rails.png"] = File.read('public/images/rails.png')
+
     #mail :to => "to@example.org"
-    mail :to => receiver_email, :subject => "Interesting Post"
+    mail :to => receiver_email, :subject => "Interesting Post", :date => Time.now
   end
 end

@@ -7,6 +7,8 @@ gem 'rails', '3.0.4'
 
 gem 'sqlite3'
 
+gem 'prawnto', :git => 'https://github.com/jlsync/prawnto.git'
+gem 'prawn'
 # Use unicorn as the web server
 # gem 'unicorn'
 

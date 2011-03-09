@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/jlsync/prawnto.git
+  revision: b7c2d12c2040b83883c2381b894cb5db0f86016d
+  specs:
+    prawnto (0.0.5)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -40,6 +46,13 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.16)
     polyglot (0.3.1)
+    prawn (0.8.4)
+      prawn-core (>= 0.8.4, < 0.9)
+      prawn-layout (>= 0.8.4, < 0.9)
+      prawn-security (>= 0.8.4, < 0.9)
+    prawn-core (0.8.4)
+    prawn-layout (0.8.4)
+    prawn-security (0.8.4)
     rack (1.2.1)
     rack-mount (0.6.13)
       rack (>= 1.0.0)
@@ -69,5 +82,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  prawn
+  prawnto!
   rails (= 3.0.4)
   sqlite3
