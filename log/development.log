@@ -11130,3 +11130,230 @@ Rendered posts/_notify_friend.html.erb (1.6ms)
 Rendered comments/_comment.html.erb (64.9ms)
 Rendered posts/show.html.erb within layouts/application (102.5ms)
 Completed 200 OK in 127ms (Views: 106.1ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/posts/1/notify_friend" for 127.0.0.1 at 2011-03-08 00:57:43 +0000
+  Processing by PostsController#notify_friend as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6HkmGtRd+uuA4BP4fJyQpaWpiMaWqSjOVVUN9ot26DI=", "name"=>"Nash", "email"=>"iamshanan@gmail.com", "commit"=>"Send", "id"=>"1"}
+  [1m[35mPost Load (0.5ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1
+Rendered notifier/email_friend.html.erb (8.9ms)
+Rendered notifier/email_friend.text.erb (0.7ms)
+
+Sent mail to iamshanan@gmail.com (1535ms)
+Date: Tue, 08 Mar 2011 00:57:43 +0000
+From: from@example.com
+To: iamshanan@gmail.com
+Message-ID: <4d757f07958e7_15081e0de4432196@shanan-ThinkPad.mail>
+Subject: Interesting Post
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_4d757f0791d64_15081e0de44318fa";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+
+----==_mimepart_4d757f0791d64_15081e0de44318fa
+Date: Tue, 08 Mar 2011 00:57:43 +0000
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Content-ID: <4d757f079422e_15081e0de44319e0@shanan-ThinkPad.mail>
+
+Your friend Nash thinks you may like the following  post:
+
+A new Start: http://localhost:3000/posts/1
+
+----==_mimepart_4d757f0791d64_15081e0de44318fa
+Date: Tue, 08 Mar 2011 00:57:43 +0000
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Content-ID: <4d757f0794e7c_15081e0de44320fe@shanan-ThinkPad.mail>
+
+<html>
+<body>
+<p>
+  One of your friends, Nash
+  thinks you like an post we have written.
+</p>
+<p>
+  Come check all the information about <strong> A new Start </strong> at
+  http://localhost:3000/posts/1
+</p>
+</body>
+</html>
+
+----==_mimepart_4d757f0791d64_15081e0de44318fa--
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 1634ms
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2011-03-08 00:57:45 +0000
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1[0m
+  [1m[35mTag Load (0.2ms)[0m  SELECT "tags".* FROM "tags" WHERE ("tags".post_id = 1)
+Rendered posts/_notify_friend.html.erb (1.5ms)
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".post_id = 1)[0m
+Rendered comments/_comment.html.erb (72.2ms)
+Rendered posts/show.html.erb within layouts/application (112.7ms)
+Completed 200 OK in 183ms (Views: 115.6ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-09 11:06:37 +0000
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+Rendered posts/_post.html.erb (95.0ms)
+Rendered posts/index.html.erb within layouts/application (168.7ms)
+Completed 200 OK in 352ms (Views: 182.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2011-03-09 11:06:41 +0000
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" WHERE ("tags".post_id = 1)[0m
+Rendered posts/_notify_friend.html.erb (2.4ms)
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".post_id = 1)
+Rendered comments/_comment.html.erb (76.3ms)
+Rendered posts/show.html.erb within layouts/application (146.2ms)
+Completed 200 OK in 210ms (Views: 149.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-09 11:06:56 +0000
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+Rendered posts/_post.html.erb (81.6ms)
+Rendered posts/index.html.erb within layouts/application (86.2ms)
+Completed 200 OK in 110ms (Views: 90.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-09 11:07:24 +0000
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.4ms)[0m  SELECT "posts".* FROM "posts"
+Rendered posts/_post.html.erb (77.8ms)
+Rendered posts/index.html.erb within layouts/application (81.7ms)
+Completed 200 OK in 104ms (Views: 85.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-09 11:07:25 +0000
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+Rendered posts/_post.html.erb (71.5ms)
+Rendered posts/index.html.erb within layouts/application (75.4ms)
+Completed 200 OK in 98ms (Views: 79.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-09 11:07:26 +0000
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (1.0ms)[0m  SELECT "posts".* FROM "posts"
+Rendered posts/_post.html.erb (31.1ms)
+Rendered posts/index.html.erb within layouts/application (35.1ms)
+Completed 200 OK in 100ms (Views: 38.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-09 11:07:26 +0000
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+Rendered posts/_post.html.erb (31.1ms)
+Rendered posts/index.html.erb within layouts/application (35.4ms)
+Completed 200 OK in 99ms (Views: 38.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-09 11:07:27 +0000
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.4ms)[0m  SELECT "posts".* FROM "posts"
+Rendered posts/_post.html.erb (32.4ms)
+Rendered posts/index.html.erb within layouts/application (36.4ms)
+Completed 200 OK in 104ms (Views: 40.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-09 11:07:27 +0000
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+Rendered posts/_post.html.erb (31.9ms)
+Rendered posts/index.html.erb within layouts/application (36.6ms)
+Completed 200 OK in 60ms (Views: 40.4ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-09 11:07:27 +0000
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+Rendered posts/_post.html.erb (33.0ms)
+Rendered posts/index.html.erb within layouts/application (37.1ms)
+Completed 200 OK in 64ms (Views: 40.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-09 11:07:43 +0000
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (1.1ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+Rendered posts/_post.html.erb (43.7ms)
+Rendered posts/index.html.erb within layouts/application (115.4ms)
+Completed 200 OK in 149ms (Views: 119.9ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-09 11:07:44 +0000
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+Rendered posts/_post.html.erb (73.4ms)
+Rendered posts/index.html.erb within layouts/application (77.4ms)
+Completed 200 OK in 99ms (Views: 80.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-09 11:07:44 +0000
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+Rendered posts/_post.html.erb (74.2ms)
+Rendered posts/index.html.erb within layouts/application (78.3ms)
+Completed 200 OK in 101ms (Views: 81.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-09 11:08:07 +0000
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.4ms)[0m  SELECT "posts".* FROM "posts"
+Rendered posts/_post.html.erb (88.7ms)
+Rendered posts/index.html.erb within layouts/application (104.6ms)
+Completed 200 OK in 127ms (Views: 108.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-09 11:08:08 +0000
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (1.5ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+Rendered posts/_post.html.erb (102.1ms)
+Rendered posts/index.html.erb within layouts/application (107.4ms)
+Completed 200 OK in 142ms (Views: 112.4ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-09 11:08:21 +0000
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.4ms)[0m  SELECT "posts".* FROM "posts"
+Rendered posts/_post.html.erb (35.2ms)
+Rendered posts/index.html.erb within layouts/application (39.2ms)
+Completed 200 OK in 104ms (Views: 42.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-09 11:08:34 +0000
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+Rendered posts/_post.html.erb (32.4ms)
+Rendered posts/index.html.erb within layouts/application (36.6ms)
+Completed 200 OK in 104ms (Views: 40.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-09 11:08:35 +0000
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.4ms)[0m  SELECT "posts".* FROM "posts"
+Rendered posts/_post.html.erb (31.5ms)
+Rendered posts/index.html.erb within layouts/application (35.4ms)
+Completed 200 OK in 100ms (Views: 38.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-09 11:09:38 +0000
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+Rendered posts/_post.html.erb (62.2ms)
+Rendered posts/index.html.erb within layouts/application (73.3ms)
+Completed 200 OK in 130ms (Views: 92.1ms | ActiveRecord: 1.0ms)
