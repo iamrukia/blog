@@ -19,14 +19,7 @@ Blog::Application.configure do
   config.action_mailer.raise_delivery_errors = true
 
   # Gmail SMTP server setup
-  ActionMailer::Base.smtp_settings = {
-    :address => "smtp.gmail.com",
-    :enable_starttls_auto => true,
-    :port => 587,
-    :authentication => :plain,
-    :user_name => "iamshanan@gmail.com",
-    :password => 'sdt1234sdt'
-  }
+  ActionMailer::Base.delivery_method = :sendmail
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log

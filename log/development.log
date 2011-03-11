@@ -17227,3 +17227,1374 @@ Started GET "/posts/7.pdf" for 127.0.0.1 at 2011-03-09 22:01:17 +0000
   [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 7 LIMIT 1[0m
 Rendered posts/show.pdf.prawn (250.8ms)
 Completed 200 OK in 277ms (Views: 254.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-09 22:09:01 +0000
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+Rendered posts/_post.html.erb (69.3ms)
+Rendered posts/index.html.erb within layouts/application (118.8ms)
+Completed 200 OK in 152ms (Views: 123.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/posts/7" for 127.0.0.1 at 2011-03-09 22:09:04 +0000
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 7 LIMIT 1
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" WHERE ("tags".post_id = 7)[0m
+Rendered posts/_notify_friend.html.erb (1.5ms)
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".post_id = 7)
+Rendered comments/_comment.html.erb (0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+Rendered posts/show.html.erb within layouts/application (104.6ms)
+Completed 200 OK in 130ms (Views: 108.3ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/posts/7/notify_friend" for 127.0.0.1 at 2011-03-09 22:09:12 +0000
+  Processing by PostsController#notify_friend as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"w/EtA16hbYST0hpMAljSRHKVocYK65HdMRDlrYt0xoo=", "name"=>"Nash", "email"=>"iamshanan@gmail.com", "commit"=>"Send", "id"=>"7"}
+  [1m[35mPost Load (2.4ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 7 LIMIT 1
+Rendered notifier/email_friend.html.erb (8.5ms)
+
+Sent mail to iamshanan@gmail.com (1894ms)
+Date: Wed, 09 Mar 2011 22:09:12 +0000
+From: from@example.com
+To: iamshanan@gmail.com
+Message-ID: <4d77fa8843e3d_17e313daddc871c7@shanan-ThinkPad.mail>
+Subject: Interesting Post
+Mime-Version: 1.0
+Content-Type: multipart/related;
+ boundary="--==_mimepart_4d77fa883aacc_17e313daddc8699";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+
+----==_mimepart_4d77fa883aacc_17e313daddc8699
+Date: Wed, 09 Mar 2011 22:09:12 +0000
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Content-ID: <4d77fa8840a63_17e313daddc87046@shanan-ThinkPad.mail>
+
+<html>
+<body>
+<p>
+  One of your friends, Nash
+  thinks you like an post we have written.
+</p>
+<p>
+  Come check all the information about <strong> HP To Put WebOS On PCs In 2012 </strong> at
+  http://localhost:3000/posts/7
+   which you may
+  <a href="http://localhost:3000/posts/7.pdf">Click to Download Post.</a> </strong>
+  
+</p>
+</body>
+</html>
+
+----==_mimepart_4d77fa883aacc_17e313daddc8699
+Date: Wed, 09 Mar 2011 22:09:12 +0000
+Mime-Version: 1.0
+Content-Type: image/png;
+ charset=UTF-8;
+ filename=rails.png
+Content-Transfer-Encoding: base64
+Content-Disposition: inline;
+ filename=rails.png
+Content-ID: <4d77fa8824d1c_17e313daddc868ea@shanan-ThinkPad.mail>
+
+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
+
+
+----==_mimepart_4d77fa883aacc_17e313daddc8699--
+Redirected to http://localhost:3000/posts/7
+Completed 302 Found in 2110ms
+
+
+Started GET "/posts/7" for 127.0.0.1 at 2011-03-09 22:09:14 +0000
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 7 LIMIT 1[0m
+  [1m[35mTag Load (0.3ms)[0m  SELECT "tags".* FROM "tags" WHERE ("tags".post_id = 7)
+Rendered posts/_notify_friend.html.erb (1.7ms)
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".post_id = 7)[0m
+Rendered comments/_comment.html.erb (0.0ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+Rendered posts/show.html.erb within layouts/application (111.8ms)
+Completed 200 OK in 137ms (Views: 115.8ms | ActiveRecord: 5.1ms)
+
+
+Started POST "/posts/7/notify_friend" for 127.0.0.1 at 2011-03-09 22:10:13 +0000
+  Processing by PostsController#notify_friend as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"w/EtA16hbYST0hpMAljSRHKVocYK65HdMRDlrYt0xoo=", "name"=>"Nash", "email"=>"iamshanan@gmail.com", "commit"=>"Send", "id"=>"7"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 7 LIMIT 1[0m
+Rendered notifier/email_friend.html.erb (12.4ms)
+
+Sent mail to iamshanan@gmail.com (2068ms)
+Date: Wed, 09 Mar 2011 22:10:13 +0000
+From: from@example.com
+To: iamshanan@gmail.com
+Message-ID: <4d77fac584134_17f0235168081fb@shanan-ThinkPad.mail>
+Subject: Interesting Post
+Mime-Version: 1.0
+Content-Type: multipart/related;
+ boundary="--==_mimepart_4d77fac57aaed_17f023516807970";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+
+----==_mimepart_4d77fac57aaed_17f023516807970
+Date: Wed, 09 Mar 2011 22:10:13 +0000
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Content-ID: <4d77fac5809b5_17f023516808035@shanan-ThinkPad.mail>
+
+<html>
+<body>
+<p>
+  One of your friends, Nash
+  thinks you like an post we have written.
+</p>
+<p>
+  Come check all the information about <strong> HP To Put WebOS On PCs In 2012 </strong> at
+  http://localhost:3000/posts/7
+   which you may
+  <a href="http://localhost:3000/posts/7.pdf">Click to Download Post.</a> </strong>
+  
+</p>
+</body>
+</html>
+
+----==_mimepart_4d77fac57aaed_17f023516807970
+Date: Wed, 09 Mar 2011 22:10:13 +0000
+Mime-Version: 1.0
+Content-Type: image/png;
+ charset=UTF-8;
+ filename=rails.png
+Content-Transfer-Encoding: base64
+Content-Disposition: inline;
+ filename=rails.png
+Content-ID: <4d77fac5645e7_17f023516807858@shanan-ThinkPad.mail>
+
+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
+
+
+----==_mimepart_4d77fac57aaed_17f023516807970--
+Redirected to http://localhost:3000/posts/7
+Completed 302 Found in 2297ms
+
+
+Started GET "/posts/7" for 127.0.0.1 at 2011-03-09 22:10:15 +0000
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mPost Load (2.5ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 7 LIMIT 1
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" WHERE ("tags".post_id = 7)[0m
+Rendered posts/_notify_friend.html.erb (1.5ms)
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".post_id = 7)
+Rendered comments/_comment.html.erb (0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+Rendered posts/show.html.erb within layouts/application (116.7ms)
+Completed 200 OK in 180ms (Views: 120.7ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/posts/7" for 127.0.0.1 at 2011-03-09 22:11:21 +0000
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 7 LIMIT 1[0m
+  [1m[35mTag Load (0.2ms)[0m  SELECT "tags".* FROM "tags" WHERE ("tags".post_id = 7)
+Rendered posts/_notify_friend.html.erb (1.4ms)
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".post_id = 7)[0m
+Rendered comments/_comment.html.erb (0.0ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+Rendered posts/show.html.erb within layouts/application (127.1ms)
+Completed 200 OK in 201ms (Views: 130.9ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/posts/7/notify_friend" for 127.0.0.1 at 2011-03-09 22:11:29 +0000
+  Processing by PostsController#notify_friend as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"w/EtA16hbYST0hpMAljSRHKVocYK65HdMRDlrYt0xoo=", "name"=>"Nash", "email"=>"iamshanan@gmail.com", "commit"=>"Send", "id"=>"7"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 7 LIMIT 1[0m
+Rendered notifier/email_friend.html.erb (50.4ms)
+
+Sent mail to iamshanan@gmail.com (1603ms)
+Date: Wed, 09 Mar 2011 22:11:30 +0000
+From: from@example.com
+To: iamshanan@gmail.com
+Message-ID: <4d77fb12343af_181f1fd87d8692f9@shanan-ThinkPad.mail>
+Subject: Interesting Post
+Mime-Version: 1.0
+Content-Type: multipart/related;
+ boundary="--==_mimepart_4d77fb122a543_181f1fd87d8690a3";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+
+----==_mimepart_4d77fb122a543_181f1fd87d8690a3
+Date: Wed, 09 Mar 2011 22:11:30 +0000
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Content-ID: <4d77fb1230a36_181f1fd87d869173@shanan-ThinkPad.mail>
+
+<html>
+<body>
+<p>
+  One of your friends, Nash
+  thinks you like an post we have written.
+</p>
+<p>
+  Come check all the information about <strong> HP To Put WebOS On PCs In 2012 </strong> at
+  http://localhost:3000/posts/7
+   which you may
+  <a href="http://localhost:3000/posts/7.pdf">Click to Download Post.</a> </strong>
+  
+</p>
+</body>
+</html>
+
+----==_mimepart_4d77fb122a543_181f1fd87d8690a3
+Date: Wed, 09 Mar 2011 22:11:30 +0000
+Mime-Version: 1.0
+Content-Type: image/png;
+ charset=UTF-8;
+ filename=rails.png
+Content-Transfer-Encoding: base64
+Content-Disposition: inline;
+ filename=rails.png
+Content-ID: <4d77fb129f40_181f1fd87d868990@shanan-ThinkPad.mail>
+
+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
+
+
+----==_mimepart_4d77fb122a543_181f1fd87d8690a3--
+Redirected to http://localhost:3000/posts/7
+Completed 302 Found in 1824ms
+
+
+Started GET "/posts/7" for 127.0.0.1 at 2011-03-09 22:11:31 +0000
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 7 LIMIT 1
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" WHERE ("tags".post_id = 7)[0m
+Rendered posts/_notify_friend.html.erb (1.5ms)
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".post_id = 7)
+Rendered comments/_comment.html.erb (0.0ms)
+  [1m[36mUser Load (2.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+Rendered posts/show.html.erb within layouts/application (102.3ms)
+Completed 200 OK in 170ms (Views: 104.4ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/posts/7" for 127.0.0.1 at 2011-03-09 22:12:27 +0000
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 7 LIMIT 1
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" WHERE ("tags".post_id = 7)[0m
+Rendered posts/_notify_friend.html.erb (1.5ms)
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".post_id = 7)
+Rendered comments/_comment.html.erb (0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+Rendered posts/show.html.erb within layouts/application (107.1ms)
+Completed 200 OK in 131ms (Views: 110.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/posts/7" for 127.0.0.1 at 2011-03-09 22:12:28 +0000
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 7 LIMIT 1
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" WHERE ("tags".post_id = 7)[0m
+Rendered posts/_notify_friend.html.erb (1.7ms)
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".post_id = 7)
+Rendered comments/_comment.html.erb (0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+Rendered posts/show.html.erb within layouts/application (108.0ms)
+Completed 200 OK in 176ms (Views: 112.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/posts/7" for 127.0.0.1 at 2011-03-09 22:12:28 +0000
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 7 LIMIT 1
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" WHERE ("tags".post_id = 7)[0m
+Rendered posts/_notify_friend.html.erb (1.4ms)
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".post_id = 7)
+Rendered comments/_comment.html.erb (0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+Rendered posts/show.html.erb within layouts/application (106.2ms)
+Completed 200 OK in 133ms (Views: 110.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/posts/7" for 127.0.0.1 at 2011-03-09 22:12:28 +0000
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mPost Load (0.4ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 7 LIMIT 1
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" WHERE ("tags".post_id = 7)[0m
+Rendered posts/_notify_friend.html.erb (1.6ms)
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".post_id = 7)
+Rendered comments/_comment.html.erb (0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+Rendered posts/show.html.erb within layouts/application (104.4ms)
+Completed 200 OK in 130ms (Views: 108.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/posts/7" for 127.0.0.1 at 2011-03-09 22:12:31 +0000
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mPost Load (1.9ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 7 LIMIT 1
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" WHERE ("tags".post_id = 7)[0m
+Rendered posts/_notify_friend.html.erb (1.6ms)
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".post_id = 7)
+Rendered comments/_comment.html.erb (0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+Rendered posts/show.html.erb within layouts/application (64.6ms)
+Completed 200 OK in 129ms (Views: 69.0ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/posts/7" for 127.0.0.1 at 2011-03-09 22:12:33 +0000
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 7 LIMIT 1
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" WHERE ("tags".post_id = 7)[0m
+Rendered posts/_notify_friend.html.erb (1.6ms)
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".post_id = 7)
+Rendered comments/_comment.html.erb (0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+Rendered posts/show.html.erb within layouts/application (105.5ms)
+Completed 200 OK in 132ms (Views: 110.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/posts/7/comments/new.js" for 127.0.0.1 at 2011-03-09 22:12:42 +0000
+  Processing by CommentsController#new as JS
+  Parameters: {"post_id"=>"7"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 7 LIMIT 1
+Rendered comments/_form.html.erb (91.2ms)
+Rendered comments/new.js.erb (93.5ms)
+Completed 200 OK in 181ms (Views: 123.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-09 22:12:44 +0000
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+Rendered posts/_post.html.erb (95.4ms)
+Rendered posts/index.html.erb within layouts/application (108.6ms)
+Completed 200 OK in 130ms (Views: 112.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2011-03-09 22:12:51 +0000
+  Processing by PostsController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY categories.name[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".id FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE ("categories_posts".post_id = NULL ) ORDER BY categories.name
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "categories".id FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE ("categories_posts".post_id = NULL ) ORDER BY categories.name[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "categories".id FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE ("categories_posts".post_id = NULL ) ORDER BY categories.name
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "categories".id FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE ("categories_posts".post_id = NULL ) ORDER BY categories.name[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "categories".id FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE ("categories_posts".post_id = NULL ) ORDER BY categories.name
+Rendered tags/_form.html.erb (4.8ms)
+Rendered posts/_form.html.erb (103.8ms)
+Rendered posts/new.html.erb within layouts/application (111.3ms)
+Completed 200 OK in 153ms (Views: 115.2ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2011-03-09 22:13:34 +0000
+  Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"w/EtA16hbYST0hpMAljSRHKVocYK65HdMRDlrYt0xoo=", "post"=>{"name"=>"Nash", "title"=>"A validated one.", "content"=>"sss", "tags_attributes"=>{"0"=>{"name"=>""}}}, "commit"=>"Create Post"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "posts" ("name", "title", "content", "created_at", "updated_at", "user_id") VALUES ('Nash', 'A validated one.', 'sss', '2011-03-09 22:13:35.003884', '2011-03-09 22:13:35.003884', 2)
+Redirected to http://localhost:3000/posts/8
+Completed 302 Found in 255ms
+
+
+Started GET "/posts/8" for 127.0.0.1 at 2011-03-09 22:13:35 +0000
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 8 LIMIT 1[0m
+  [1m[35mTag Load (0.2ms)[0m  SELECT "tags".* FROM "tags" WHERE ("tags".post_id = 8)
+Rendered posts/_notify_friend.html.erb (1.4ms)
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".post_id = 8)[0m
+Rendered comments/_comment.html.erb (0.0ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+Rendered posts/show.html.erb within layouts/application (119.7ms)
+Completed 200 OK in 145ms (Views: 123.6ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2011-03-09 22:15:48 +0000
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+Rendered posts/_post.html.erb (46.3ms)
+Rendered posts/index.html.erb within layouts/application (91.8ms)
+Completed 200 OK in 118ms (Views: 96.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2011-03-09 22:15:50 +0000
+  Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" ORDER BY categories.name
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".id FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE ("categories_posts".post_id = NULL ) ORDER BY categories.name[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "categories".id FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE ("categories_posts".post_id = NULL ) ORDER BY categories.name
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "categories".id FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE ("categories_posts".post_id = NULL ) ORDER BY categories.name[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "categories".id FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE ("categories_posts".post_id = NULL ) ORDER BY categories.name
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "categories".id FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE ("categories_posts".post_id = NULL ) ORDER BY categories.name[0m
+Rendered tags/_form.html.erb (4.7ms)
+Rendered posts/_form.html.erb (102.6ms)
+Rendered posts/new.html.erb within layouts/application (110.2ms)
+Completed 200 OK in 152ms (Views: 114.0ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2011-03-09 22:15:57 +0000
+  Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"w/EtA16hbYST0hpMAljSRHKVocYK65HdMRDlrYt0xoo=", "post"=>{"name"=>"Nash", "title"=>"A new Start", "content"=>"sder", "tags_attributes"=>{"0"=>{"name"=>""}}}, "commit"=>"Create Post"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "posts" ("name", "title", "content", "created_at", "updated_at", "user_id") VALUES ('Nash', 'A new Start', 'sder', '2011-03-09 22:15:57.221394', '2011-03-09 22:15:57.221394', 2)[0m
+Redirected to http://localhost:3000/posts/9
+Completed 302 Found in 241ms
+
+
+Started GET "/posts/9" for 127.0.0.1 at 2011-03-09 22:15:57 +0000
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 9 LIMIT 1
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" WHERE ("tags".post_id = 9)[0m
+Rendered posts/_notify_friend.html.erb (1.5ms)
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".post_id = 9)
+Rendered comments/_comment.html.erb (0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+Rendered posts/show.html.erb within layouts/application (97.7ms)
+Completed 200 OK in 123ms (Views: 101.6ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-11 15:33:38 +0000
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+Rendered posts/_post.html.erb (98.1ms)
+Rendered posts/index.html.erb within layouts/application (131.5ms)
+Completed 200 OK in 338ms (Views: 166.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/posts/9" for 127.0.0.1 at 2011-03-11 15:33:41 +0000
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mPost Load (1.4ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 9 LIMIT 1
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" WHERE ("tags".post_id = 9)[0m
+Rendered posts/_notify_friend.html.erb (2.8ms)
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".post_id = 9)
+Rendered comments/_comment.html.erb (0.0ms)
+Rendered posts/show.html.erb within layouts/application (60.1ms)
+Completed 200 OK in 135ms (Views: 77.2ms | ActiveRecord: 2.3ms)
+
+
+Started POST "/posts/9/notify_friend" for 127.0.0.1 at 2011-03-11 15:33:47 +0000
+  Processing by PostsController#notify_friend as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ogbErJXn3P1yR6MxrteOq61AQaglEhV+K6PmP3/qfAs=", "name"=>"Nash", "email"=>"iamshanan@gmail.com", "commit"=>"Send", "id"=>"9"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 9 LIMIT 1[0m
+Rendered notifier/email_friend.html.erb (8.3ms)
+
+Sent mail to iamshanan@gmail.com (16772ms)
+Date: Fri, 11 Mar 2011 15:33:47 +0000
+From: from@example.com
+To: iamshanan@gmail.com
+Message-ID: <4d7a40db7dc61_2ce829bc54c9916@shanan-ThinkPad.mail>
+Subject: Interesting Post
+Mime-Version: 1.0
+Content-Type: multipart/related;
+ boundary="--==_mimepart_4d7a40db7469d_2ce829bc54c97ec";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+
+----==_mimepart_4d7a40db7469d_2ce829bc54c97ec
+Date: Fri, 11 Mar 2011 15:33:47 +0000
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Content-ID: <4d7a40db7a4c3_2ce829bc54c9834@shanan-ThinkPad.mail>
+
+<html>
+<body>
+<p>
+  One of your friends, Nash
+  thinks you like an post we have written.
+</p>
+<p>
+  Come check all the information about <strong> A new Start </strong> at
+  http://localhost:3000/posts/9
+   which you may
+  <a href="http://localhost:3000/posts/9.pdf">Click to Download Post.</a> </strong>
+  
+</p>
+</body>
+</html>
+
+----==_mimepart_4d7a40db7469d_2ce829bc54c97ec
+Date: Fri, 11 Mar 2011 15:33:47 +0000
+Mime-Version: 1.0
+Content-Type: image/png;
+ charset=UTF-8;
+ filename=rails.png
+Content-Transfer-Encoding: base64
+Content-Disposition: inline;
+ filename=rails.png
+Content-ID: <4d7a40db5c236_2ce829bc54c9664@shanan-ThinkPad.mail>
+
+iVBORw0KGgoAAAANSUhEUgAAADIAAABACAYAAABY1SR7AAAAGXRFWHRTb2Z0
+d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAGZhJREFUeNqsWwmUXGWV/t5S
+r9aurl6qO0l3Z9/DEoJh18gZQGAUxPHIyQHH7eioZ8bjnAFHZ0RndNxxRBhG
+cUbxoKIHBkTEcUYREIHIGpKQjUDS6U660/tSVV3Lq/fefPf/Xy2dBFGYx3np
+qvde/e/e/97v3u/e/8e4Lt2L8DCCAFcGwF8ZBjYbgM1rAZoO+WLwZhDMu9y4
++YcOozbAqzwXNA3GdzX/5hV+KnKO2+GXFj/AvzmW8e72iG202CYiphbY403f
+9/k3QHZtJ9oWtyCQe7wGX79TKVb7rP9pXJPDVxf0Rz+oyxm4HNWrahFNixdk
+3EAJbERMWOm4ulctVODNVeEVK0DeRVDgb1wfJgcqUo6duaKnFOH7bm6JmH+5
+LOEgZprwRIHAV3JYfLjKM55Noz3bBqdcgt0Wg52Kq/cHHkXns0qIukKBlltk
+9rU2QaiouiefPQ+RdBuseAJeqYTK1CTH8mE4NsyIpRWu8nssCs+xULWpjGVw
+TvieKl/sV6mIXzOib/OftzuG8d6l8SiVMODyRb46oazg8YPP2Wnvy9ISNqpl
+zsxYAW6hjGhHEmYiBoPC+hRMfFMrESgrBC5n0KS+lq1nPahZh2OXymg9bSNW
+X/u3FKyKI//7Exx96B4Y8RiCEseq8t0VznyxjMDidFIJ8QSf3hJEOFbZEAHV
+hIkFTX54fxtnIW5pJUQIeZ8ooZShkInuDOLpFIX1ldtCBix7KI/k4E7OwbTj
+cNIdiCQzsONp2LEk7GgUnZsuQN9lW2En45xlukrUghWzeZq8FsXsi8+gND6M
+SCqD9k3nwulIUShKZxt0LYPWortRSY0NXreC8J6pZNDChEDh53PT1NIPLaEn
+LbQKNTETEaR7sycA0jD1INXZAnzObjTbiWh7Vr1A3Knn4nciu+lCvstUig09
+cp96cVCtcELoFpEIFUjjyIM/osWIg+IMXS3DcfNwZ3NQHmmKU9OqroX2jWdg
+atduuPkpmA4ViZrK9RqKABEBtg9tDeW+oUIyTIYuFaX7eCG4aqbU+hhKocD3
+UBoZISBLiC9cpAQKyq5SQo6OjVswtec5VHLTiHUuIN4WonXlqUj2riS0DIUX
+wZlERFHSK+SQGzqI3MHdmNm7CzMvvowF527B8qvejZ3/+iXk9vVTao5tiTKN
+0OUHISZEGS/8W6UbRdoTSHe3E1f+CRaR3xhBLVJSIQ7qleZQGBigZYoYdR+E
+lUjBaW3H6JMPIrV0Hdo2bEayZ7my0KsdLctPBS64EuWZMYw/9wTGnvod0mtz
+WH71Vuz66o10bVpK8FIx6orUMejpCKYBTvfM9HXBJtA8z3/1BKDivaksVJma
+YsgsYPDnd6LzzAuw8I1XUIGleC1HtDWLnguv5BiX4+jDD2D4sQeV1bQvNXBi
+6vAb1MGtrEEHjRPgqfZ0qMRJElYYSudfq12nmzAvtJ2yib69iRadRGnySD0U
+v5bDtCPou/gqnPY3N6DnLRczgtHxCf4aVnUeUdgw6i6FqM1w292Ujo/TJdB5
+wHcJ2iDCaBTRmVfw4rkw4yksuvQyJJf0YvrgNiayvBLESS9AYuFqJLLLCPb4
+SQWulosojhxmeCeoDeaQSoVuy8lPtSKxYKnC2Bmf+DwtvBgv3/qfTI6uEtGu
+JV7PCBTIq5zNtt5uxBgyvap30pf55TISfX1Y/PatGPrVvcgPvEyAJ1GenaPZ
+LSy//G2IL+qki43CNCMwk620iovy9FGUJgYwm8gwpK/guRJOS5dyD688h+n9
+z2L28F4Ujx2ia04jEl8Ad3oGVTePaGcnQ3sKLb1rkD3nIqx594dRIh733n6P
+mmrrvGj671sjVlxczRWAkxZ0r+rTrhfMJ0uEM8xKUYXONR+5nr57BdpP24TC
+sX6M/f5F5AYLWPauK9F11htUwjOIL8GNZH1qpKwiyVGELk0OoDj2EtziFOaO
+DSN3aC/v24xmZzAU51TgcJKd/DktHo9jyRXvg0Or7PvejTj22KPKiyafew6z
+g8MYypVLNsLkJ2bxaZXM4i5EmCBPsEaoWJUUpfeSK7DgvEtQmh4ihTDQdf5F
+OHDHr7HqPVeh99KL4OVzpE50N18CtqnCdBCY6rsEcTsqIGUGD6rY9e3bMPzI
+HmTWLsbqa7ai84wL6YrTqEyOqEmwonEExSoO//R7dLcJWiWCueF+7P7mjZAU
+Y8YdJZqySMo24j5zQSybQdeyhdrX5imho4NhEEnkRbkDQyjSRVJLeziCgef/
+6avIrFuOtR95P2lJNSSshg4l6rdm+Ht9inWsqIOX7voN+u/eRoEM5PvHMbbj
+Gcwcfg7jO3YxbCcRiaaYQOXnpEaFGeahGQaMCidJRidt8RghS6Q344XQIowm
+Fq2QXdLNdwsx8zUFqCOQNIECVqdp8pESB53Fvhdux9T2FxBb1AWX4XbjDX/H
+FzjEmgedB4XYKT5D4T0VTLRCtIiTwOBvfovpvS8T+Bm4MyW6jw13tIIDt/9G
+/TTWk8HKvzgbmd4+YldYQIdixgHJYkC82Ul6UDnQSbEGdsFGZlEWyUyLyiEy
+YwajRVAoAXNlEjR+pjUCUmiDQcKOORwwgpFfP4cg5mPzTZ9FoqePdGVWuZRP
+YQNPcgrd0/dCpqpdy3DIsQ4fxtiTu7Hxkx8iRXkcB+94iM86/K0Jx4opi5aO
+zGJs14toWeLAdYXWxFQCtJlkA+LUq+bI7QR3mj3YoqVNgGcXd5NWUOiZAk9G
+H86S4jK25jWBLVREl1uK5Voywz6WXf1WLHjTm0lPigSyxoUpnEqU8c26Wyk/
+Y24RMjhw/yMoj+cQbWvH0isuwuijL6BwaJwcyq7XUTaBP7N3HOU3ke7HSONJ
+b8RTBGoGKZPFyTE8saTZyCPtrC2coxOoTuY5+x4UTzHNsNjR6d6Qa8JJ5BIV
+8ksVtKzpwcr3v5dyOrzHKMWXizsZAnK6k1ImPDmAqjOmdr9AwXcodzr4kwfQ
+fuY6VKbzyhpGU96S75WxIqb2DaPnvNWKklQD4WSuzB+sVILjOYjm/VARSWKT
+BQQzlZCFmErYeubzVJJR14SlQtVQMjO0xrXvoulXkq3OKnxAXqSsoSmNUbOM
+/BV35RjDDz9JrBXpnnEM3vsYjj38LLyZihI8QNAgQhITOCmTO46i+6w1MPm8
+6RVIiC09/RJUGcECCe2UU0G6QIyUjEC5hGaCNd4RqHKU6VuDylQlI2N8hfXD
+WibEdyhCKXREuZUVUX8lyhh2+Jl5Q/6akSgT4izGn3wBFu+JwYOKj8qwtsbJ
+aYmJuYEZ5AYmFOWXPCN1jTodzeuqM0WtSI1rzXrV0LSNKRFuZLYQ2EYVPjEQ
+VuQUMsCya65GvL1HWUwJS+FNUcBsUiZUQv7aLGlndr+I8ug4XUMVAJw4U7Fm
+I8SFETTmUaGK2gas1SeeP8znoizIEso9DaUIy2FWkNU5V0VYs/azWXKncuCH
+qgQq1CHiY831H8TGr34erRvXKdD6LD3b+HnRn12qGgdqlmxHZe2aRcy6NbQS
+cl8y8dSOfWQE1yK9YYmqXYww3xhNObemUI2IWraF2d1HMTeeh83MbkUiylKi
+iMdy2wjzXBjxWYdRiSkhfDVVKGSstxM9l16JxZe/E2+848c49bPXK9D2vPUy
+EsBOVZMINmpCW6HgEOuIQjXF6FYuAV2aHsWyrVfj9C9er5SR5Kms0PTf8QoZ
+tIo7WSJW+mmRJLGSpDK2ipzV2bK6X6fxtWOCicYVqyhGXkXn+WeTcfape5ZD
+sPGM91C5iy8LI0s445bd9FkrAFHICt1N8DE+gdyeQczs34+uzeei68LNLGfd
+ea50st6VbiyYmHq+nxTFRSSRVsD3ii7xyeQbdt/M5h/MERMT4i6GjlAWeUxh
+6HCN8+LIz+5H5zlUbtHSOnVp4MCa51JaIQ16i0kwP9CP0uExPP+JL2DggfuY
+N8jTJClYxnH4aNimdpp0r7nDkyx9h5gE0+RqSVTyZXXTsMz5FaJyMJrrGLNo
+pyWUIImj//1LjPzuUZLCC5gzVqMwPIglV7/rxCaihFaCPCDOxDUl1EoylFP4
+mUlFCgPDStLKWB47PnUjrSSsNqrJsa/zR02ZwGjYRoVkEZh0ZHzbfmTPXE85
+SWrnKip6GeFE2I1iKVBCzNK9pmiVhS1x+Axx7myRJesvgHvvR3rNKmQ3n/OK
+PVGND1MVXTqHiFK6qVFiwlXgTVDhkq+ChhnyJCW9GeaoIGQOdV0M9YhYZWbv
+UXrIJJ+rKL6lJ9CYj5Fai0iKqyPkx0HcUsJYrBbtREIJ2H72GxTI/2CL1zAb
+LkZ8WIxYgUvsKebq6Zl3rEZvymx6echo1N+au9XcS3oHsxWMPrGTFH+CLhsm
+bhMNRWrNB4SZVSwyJ5WDFRb3DAAmaXf2rPP+6BpbkmStkBLAWwkHmdNWKfYq
+FaZRp2GGdo+mhpv6bBkNhepRzERpdASeW1aKSZ5RidpoUsRAvQ+NJCnJHHl+
+bcZ80vjkij661vo/rWMQSitWskgnNv7LP+MNN38NadYuCPtYCItIFTjMRgfe
+qClkhkFZ+FXCQmpFuyKXii7xNI93LT9szdrUMsNZnJkuwZX6zlKdaqRXrESi
+q/e19kBC3NisLt+Gc/7jW0gtZ51Bl1MCmUaoM//aRv0aapnF0l362KIUnI6E
+yuhCUOuWrIVfAZcRAj5NJWJ0C5epP19y1awJLWhdt/a1t3KcGF8Yxb5bbsLI
+toeYmxZRkRWq46IrR9StX/tcw4oKsYH+nlrZpmbcZQ7R1tDPBvMbdIwofLpV
+KIfcJy5nCa5WRhnDFkVOx+s5kr29GPzpfUxsuxg0zlQUxSZudG/CqNOSIJxY
+CclGCA7fDRDpiCK6gIVfidVmWXrHRh0fmBd+eSYIIEcWdRhdJJsWp+aQT1vI
+9nYjnl3wuhSJLuhAJJ1WQWDisadUELCi0bD1WlscMpq6lrV1Ft0riC9tVcFD
+8odfDVS9bod5pNGgC3+XFnxsXA2rsw25/gHMTcwiRxdbvLgPsY7s61IktWSZ
+inw6l8SbupNGvUlphB1yZY3aIhfZtRmz4XS3oMoA5JP6BywdvBIr24ytMdzs
+WjHaMcnI0nXRG5FkdCrnS6gy6QzccxeMZDsJW+r1KbJ4pbKAVy6huXoyauVU
+aAUjRK5WjN9cH05PCiZl84VfsXaSVTKf191C6F61qCXjtjAORtvTSPb0sgYo
+Ei/UmEmnMj6JkpXA6z2cTAbxxV26GdEEZB12DVVV63BrIuwYaWpCGZyuJBWS
+FSxPLTB5PH1+rhDDKlQbuvajNUzE+UVyRTTdQt+zWIrGWIJOozo8hjmashq8
+PkXsZAoty1Yqi/gVnq6ru+p1pUKFTM3dENJzu421TiqKKq3hhUp45apSyM1V
+GMH0xOi+liz0yOxUyijs2w2DlRjI+8tHB3XUIP+fGBxA9+LFr1kRgwV769p1
+fPkEQ+9KRq+dKE9MsGKc1BmxltEC7W6CEdW0aUtocIvw0tcSt5JGu3R4OA+z
+IxW1uKoUOUZzFxmxRp/ai+iz+xi9CK5EVJGdqBNBlG4xdvBlRq9eTQteawhm
+0MgPLsSGj92gVqjKk8ew/TOfxPjjz8BKxhvLFGHjWUBuJh0Cu6pqD7WCTGz4
+BDqKpE30rIlj05rw6sKFxuCXPP9O8MEjxQqOTuQwNjJLa1mItaRRGB3GLHnO
+6znaNmxC/nA/cocPKNoS61iEZVdfEy5LBHVKUieCLY5eeKIiXp6RapJuNVJF
+MCamYGnOUFyslBo0Xronai0dIfXmnZIqtKhgNIaj/F3ULSLx4j60dnXXy8s/
+OZe0dyGW7cLOL34arevXI9rayWgYhZPtoJtNqsTbyPKUgwzamyCw867MtG5N
+BUF9bSBXLCkeKOzDroUutaZODax52yUk5sfgsyrL897+PXtQHTmK7vWnomPp
+CkSTf3pI7j7/Qmz/5HWY3r5LNziYeC3WPlYsovOJJ7VKVbuPENcgXEyvuV3I
+bKXpPlcqqh0acqGe2S1oq1jzqmZ+b0mGDJNaM2bnjrHuPnYUifZOtDMKda9a
+h1RnZ30F99WO9jM2MzouZw0vLdJIuCsiUInOz0vbiVNa9DSBtITyWo3VAV/X
+G/KmPEuBKrmard7rNxKiyCoN7EBnpXlLCiYTmfibuEHSSSkLV4uzGNr5NEYP
+7EZb31J0rd6AzMIevtf+g4oIg+7e8iYM3H03J5muw9n3ZquqfwU3aGDdMBqd
+ztr+lXBbhyg+R2xYTb5jN7YG6SKnyh870r8Ki6Py0CiO3fcTNWaCBU3E8FVD
+r7ZPRjbcDLHO30N/TmazdLk+JFMxVoZh6errUrcmnDQp5o4MocrI4o3N6dmX
+hp1hoHkOFV2R5CXtVwm3Qc0aBip8Z6lY0HtRpJ8GYz5pVFgxgkaHiaCuDE1g
+fOAhFdNbJIKxplCKNJqqyoqi0CT9tp9/IyyPE2SryYyDKD9LVKxKUqXbuFOM
++yVDN/Rq+0ia1mLmtYNqK8rhTiSpLLNbLkDLuZvQ0X8QBoG+//5fIMjP4AQ/
+kJkuM+vW+sS1wkgiVSTi0Fq2XqoLFfFYMMkyHSFL2mOpHQmy+aU4xXHoLk6r
+rIkYiE1JNpZOJjO1ivduOLSkZeuk6/YBwR54jaVv6chXpmZQmJnEssveQjwV
+cPCXv1IWt4//sUVB7K4WpGTREqhvJCrO5MhtGLMTKWU5pUSpDKs1glhbB4W3
+VCSpTM6gOl2GQzxJt+RQUMFcOoENrXG0FEhESSvMmIVIZ6uaHL9QZn6Y067V
+NJueV4bdmYDdktJ7pAJNKKfG+pG/cz8GH/gfGLIARF4o9fs8RWSrUmZxN7Z+
+9za0sooTPiRuI22bsUMHsevWW1B+iFnYdOgqFWTPPxWnXPdxtK5eV8fB9IH9
+2Pn1m1hz7MQh00Xm/C34+K23MiOXsPvLX8bgbXej5bz1OPs7tzIhduHgnXfg
+hX/8OplEsr6U4ZtV9G69HMvf8wEkKUfgaUeWbs4zX/8Sxm/+AbzxCRVF1VpF
+M9hrvS2ZmZbuRUh2LpxPw7t60EWK8vgHPoCZ5w4i1pvBps99Bu2nbJ73XLyz
+B4kvLcAPt27F2LFR9MTjSKbb1L1h4mIq4iNL14u2ZRFJysazZCNHqA0DZXRc
+uBGnf+bz6v4JLDqVgk3r247DnMdJDkOzffJtDfoY2b0dg08/gbZlq7BiyyWk
++MuQ2bAGU9v2snTtQnxBj3pu9OnfYXr/Hiq1EZ0bz0ZsUS+sFUvgDB+DFfh1
+v3X9Kg4xknfLRNZ21h2/RYTX29avU0pUSwUcuP07KLw0oBZrA5bGozt2MlA5
+updgzGuJnYyp6rt7778HP37fX+OJW77ZaKzKoo5eOdfRhMehO3+EbXzu8H/d
+XW/SOTwj0gZqeoVck+h3xES9LDjpVp3QXeRdqSVLkDllrepy5oeHMPH0brq2
+qdteRmNJwj7pYKFVlr75YrztKw6ya9aFTzF8Tk+pBZrmXRGRdCsSLMiQbKlf
+E7PLrjarCcSSA0QZvQQevGKncnrfXpVwZTde3+XvqN9b8d4PYfuNn8O+b9zO
+56K6oGpOiMYreNfSc7eoE+FO00P334XJx3fQzM685zd8/Hqs/uCHGGEy9QEs
+laT0Cm9t7rVyYqnGWogEGIl+nqUTmyxwTj62HTs/91ks3XqN2u8VBLKZoVt1
+4pe/42oc/O6dzB2+qnEMNGHEPHHbSfiSqloakGP7D7+Dpz79BfT6cRXu5rHa
+tk51Nh9aEaOJu2mOZIf36uDu6EDi3PVoIQGV5efiwSG1Rjny8COY3P4sI1WM
+2HKx4bpPYdEFlzA9RMOlhCAsLJssYqGxRbcZI8//9MfIrliDvjPOwqqL/xwD
+996P6rY9zGHWPNMNPf8UJl9+Cdm169G9YWOdapjB8auShsJMc85YdekVWL7l
+QgroKHd68qMfRcAEu+lrX1GdSdmBKjQn0aOrU9lso5bK53uSLiyscNu10tAy
+66FganAQD9zwD6jM5ZBe2IeLbvoGWs5YofZQyfKXxbpejl133omfXfth7P/F
+z8NRLbXgb0nGNe26GhGST5MzFmEYll2oCl+sd2IZCcWtTKxd6rokwdYVpyK9
+fB1z1KnIrD0NDt1WiNGB738X3kxJVapiWVmR5pCurc2iSaIkmNJ0Hr+9+WYk
+Mu0YfHI7Dv9+J+766Eew8vSNiFP4WGsGBanhh6bw1K3fRjSdwfSel5FikTT6
+7At4+t9vgVssojA0Rp6VwOyhfjx9262qABrfw1KaJW15YprXvsVcEG1sT5eC
+ji40fXSURVyAvTd9TSmv6nTVifQx/uwzmHiU7kb3Clu+GC27MsY247p07+Si
+hN0m/Kgc6EXRIjmMgDvCF9mcsXJxDgniZSnN3xFLIcc6Yormd1mhCX2QpWc7
+SteolNUpNUQkIUvJpDkUrsrfqy1L8ZjaFSTrJKLsCbvz6BqxaBwdBReWbJmF
+3kTa2NYRVYFGHEYKqqFKFXtzMg6uUhaJyzZyQ/d/FdUm8LwmAuYwO/vhQBU+
+m+ddmy+NpBKNWpIzF7EdRSxrOygMMl6LruUw2tQXOTy1akNFk/XtU/V70H3g
+6YyNNk5GtOIp/DYvlKp9LoJLWuIl2fADfJ/X71PQ8Jo2Vzbv620OAFI9jtIq
+CQ7tnfC/JxhNT4dShds4UKvB66s1ftPnRqOh/l13hDDqWGhxqUgTsIV1Fzg5
+Y7TEpKsK+B/w+sdqUWuqv1CxUN8K/MqHLMnhj/g/J/4/juDky9VSg0kh/zQj
+322897Pao/8nwAC+AZicLeuzngAAAABJRU5ErkJggg==
+
+
+----==_mimepart_4d7a40db7469d_2ce829bc54c97ec--
+Redirected to http://localhost:3000/posts/9
+Completed 302 Found in 17040ms
+
+
+Started GET "/posts/9" for 127.0.0.1 at 2011-03-11 15:34:04 +0000
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 9 LIMIT 1
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" WHERE ("tags".post_id = 9)[0m
+Rendered posts/_notify_friend.html.erb (1.7ms)
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".post_id = 9)
+Rendered comments/_comment.html.erb (0.0ms)
+Rendered posts/show.html.erb within layouts/application (87.2ms)
+Completed 200 OK in 115ms (Views: 91.3ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/posts/9.pdf" for 127.0.0.1 at 2011-03-11 15:34:24 +0000
+  Processing by PostsController#show as PDF
+  Parameters: {"id"=>"9"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 9 LIMIT 1[0m
+Rendered posts/show.pdf.prawn (264.0ms)
+Completed 200 OK in 378ms (Views: 318.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/9" for 127.0.0.1 at 2011-03-11 15:55:20 +0000
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 9 LIMIT 1[0m
+  [1m[35mTag Load (0.2ms)[0m  SELECT "tags".* FROM "tags" WHERE ("tags".post_id = 9)
+Rendered posts/_notify_friend.html.erb (1.9ms)
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".post_id = 9)[0m
+Rendered comments/_comment.html.erb (0.0ms)
+Rendered posts/show.html.erb within layouts/application (79.3ms)
+Completed 200 OK in 161ms (Views: 83.5ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/posts/9/notify_friend" for 127.0.0.1 at 2011-03-11 15:55:26 +0000
+  Processing by PostsController#notify_friend as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ogbErJXn3P1yR6MxrteOq61AQaglEhV+K6PmP3/qfAs=", "name"=>"Nash", "email"=>"iamshanan@gmail.com", "commit"=>"Send", "id"=>"9"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 9 LIMIT 1
+Rendered notifier/email_friend.html.erb (8.2ms)
+
+Sent mail to iamshanan@gmail.com (118ms)
+Date: Fri, 11 Mar 2011 15:55:26 +0000
+From: from@example.com
+To: iamshanan@gmail.com
+Message-ID: <4d7a45eedef2b_32bd29d2ae05898e@shanan-ThinkPad.mail>
+Subject: Interesting Post
+Mime-Version: 1.0
+Content-Type: multipart/related;
+ boundary="--==_mimepart_4d7a45eed5a24_32bd29d2ae058766";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+
+----==_mimepart_4d7a45eed5a24_32bd29d2ae058766
+Date: Fri, 11 Mar 2011 15:55:26 +0000
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Content-ID: <4d7a45eedbaf0_32bd29d2ae058878@shanan-ThinkPad.mail>
+
+<html>
+<body>
+<p>
+  One of your friends, Nash
+  thinks you like an post we have written.
+</p>
+<p>
+  Come check all the information about <strong> A new Start </strong> at
+  http://localhost:3000/posts/9
+   which you may
+  <a href="http://localhost:3000/posts/9.pdf">Click to Download Post.</a> </strong>
+  
+</p>
+</body>
+</html>
+
+----==_mimepart_4d7a45eed5a24_32bd29d2ae058766
+Date: Fri, 11 Mar 2011 15:55:26 +0000
+Mime-Version: 1.0
+Content-Type: image/png;
+ charset=UTF-8;
+ filename=rails.png
+Content-Transfer-Encoding: base64
+Content-Disposition: inline;
+ filename=rails.png
+Content-ID: <4d7a45eec05c0_32bd29d2ae058635@shanan-ThinkPad.mail>
+
+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
+
+
+----==_mimepart_4d7a45eed5a24_32bd29d2ae058766--
+Redirected to http://localhost:3000/posts/9
+Completed 302 Found in 327ms
+
+
+Started GET "/posts/9" for 127.0.0.1 at 2011-03-11 15:55:27 +0000
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 9 LIMIT 1[0m
+  [1m[35mTag Load (0.3ms)[0m  SELECT "tags".* FROM "tags" WHERE ("tags".post_id = 9)
+Rendered posts/_notify_friend.html.erb (1.5ms)
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".post_id = 9)[0m
+Rendered comments/_comment.html.erb (0.0ms)
+Rendered posts/show.html.erb within layouts/application (87.1ms)
+Completed 200 OK in 111ms (Views: 90.9ms | ActiveRecord: 2.7ms)
